@@ -1,0 +1,1 @@
+I tryed to make connection to database and add some recored
