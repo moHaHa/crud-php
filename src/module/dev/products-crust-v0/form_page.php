@@ -1,6 +1,7 @@
 <?php
-include './inc/conect_database.php';
-include './inc/insert_into_database.php';
+// include './inc/conect_database.php'; *CR wrong path 
+include './conect_database.php';
+// include './inc/insert_into_database.php'; // *CR wrong path , and there is no need for this file here 
 
 $sql_select = 'SELECT * FROM products';
 $all = mysqli_query($conn, $sql_select);
@@ -9,8 +10,7 @@ $products = mysqli_fetch_all($all, MYSQLI_ASSOC);
 echo '<pre>';
 print_r($products);
 echo '</pre>';
-
-mysqli_free_all($all);
+// mysqli_free_all($all); // *CR Undefined function 'mysqli_free_all'
 mysqli_close($conn)
 ?>
 <!DOCTYPE html>
@@ -28,7 +28,9 @@ mysqli_close($conn)
 <body>
     <h1>Add New Product</h1>
     <br>
-    <form method="post" action="/form_page.php">
+    <!-- *CR : '/form_page.php' wrong path  -->
+    <!-- <form method="post" action="/form_page.php"> -->
+    <form method="post" action="./insert_into_database.php">
         <label for="title">Title</label><br>
         <input type="text" name="title" id="title" required> <br><br>
         <label for="picture">Picture URL</label><br>
